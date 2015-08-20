@@ -1,0 +1,66 @@
+author = "Fuiba";
+
+// Overview:
+overviewText = "PMC Versus annihilates the only tourist attraction on Altis.";
+overviewPicture = "overview_06.paa"; // Mission screenshot
+
+// Loading:
+onLoadName = "Semideus Rabiosus"; // Mission name
+onLoadMission = "Eliminate reporters and team manager and destroy go-karts.";
+loadScreen = "versuslogo.paa"; // Loading screen pip
+
+doneKeys[] = {"co10_pmcvcro06"};
+
+minScore=0;
+avgScore=1000;
+maxScore=14000;
+
+class CfgWorlds
+{
+		// Loading texts displayed on the bottom of the loading screen (picked randomly)
+		loadingTexts[]=
+		{
+			"PMC Versus was founded in 1997.",
+			"Stratis is of volcanic origin, with many rocks and crevices and Versus."
+		};
+};
+
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 10;
+};
+
+class CfgDebriefing
+{  
+	class End1
+	{
+		title = "Mission Completed";
+		subtitle = "";
+		description = "PMC Versus has ruined the last tourist attraction on Altis and notified the world wide media on the situation the island is in. The already scarce civilian population is either leaving the island or moving in the vicinity of the AAF controlled Gulf. The high concentration of population has lead to increased crime.";
+	};
+};
+
+// Available at startup:
+class CfgWeapons 
+{
+	class hgun_mas_mak_F	{count = 2;};
+};
+	
+class CfgMagazines 
+{
+	class 8Rnd_mas_9x18_Mag		{count = 8;};
+
+};
+
+//--------------------------------------------------------------
+//------------------------AIS INJURY----------------------------
+//--------------------------------------------------------------
+class RscTitles {
+	#include "ais_injury\dialogs\rscTitlesAIS.hpp"
+};
+class CfgFunctions {
+	#include "ais_injury\cfgFunctionsAIS.hpp"
+};
+//--------------------------------------------------------------
