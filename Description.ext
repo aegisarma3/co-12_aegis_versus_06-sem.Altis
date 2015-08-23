@@ -29,11 +29,11 @@ class Header
 {
 	gameType = Coop;
 	minPlayers = 1;
-	maxPlayers = 10;
+	maxPlayers = 12;
 };
 
 class CfgDebriefing
-{  
+{
 	class End1
 	{
 		title = "Mission Completed";
@@ -41,26 +41,3 @@ class CfgDebriefing
 		description = "PMC Versus has ruined the last tourist attraction on Altis and notified the world wide media on the situation the island is in. The already scarce civilian population is either leaving the island or moving in the vicinity of the AAF controlled Gulf. The high concentration of population has lead to increased crime.";
 	};
 };
-
-// Available at startup:
-class CfgWeapons 
-{
-	class hgun_mas_mak_F	{count = 2;};
-};
-	
-class CfgMagazines 
-{
-	class 8Rnd_mas_9x18_Mag		{count = 8;};
-
-};
-
-//--------------------------------------------------------------
-//------------------------AIS INJURY----------------------------
-//--------------------------------------------------------------
-class RscTitles {
-	#include "ais_injury\dialogs\rscTitlesAIS.hpp"
-};
-class CfgFunctions {
-	#include "ais_injury\cfgFunctionsAIS.hpp"
-};
-//--------------------------------------------------------------
