@@ -1,13 +1,15 @@
 author = "Fuiba";
 
 // Overview:
-overviewText = "PMC Versus annihilates the only tourist attraction on Altis.";
-overviewPicture = "overview_06.paa"; // Mission screenshot
+overviewText = "PMC Aegis annihilates the only tourist attraction on Altis.";
+overviewPicture = "images\overview_06.paa"; // Mission screenshot
 
 // Loading:
 onLoadName = "Semideus Rabiosus"; // Mission name
 onLoadMission = "Eliminate reporters and team manager and destroy go-karts.";
-loadScreen = "versuslogo.paa"; // Loading screen pip
+loadScreen = "images\aegislogo.paa"; // Loading screen pip
+enableDebugConsole = 1;
+respawn            = 4;
 
 doneKeys[] = {"co10_pmcvcro06"};
 
@@ -15,13 +17,62 @@ minScore=0;
 avgScore=1000;
 maxScore=14000;
 
+//AEGIS Config
+#include "aegis\functions.hpp"
+
+class CfgLoadouts {
+	//Team Lider
+	class B_G_Soldier_TL_F {
+	  weapons[] = {"R3F_Famas_G2_HG_DES","rhsusf_weap_m1911a1"};
+	  magazines[] = {"Chemlight_blue","SmokeShell","SmokeShell","SmokeShellred","HandGrenade","HandGrenade","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP"};
+	  items[] = {"ACE_EarPlugs","ACE_microDAGR","ACE_fieldDressing","ACE_fieldDressing","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_morphine""ACE_Flashlight_MX991"};
+		primaryWeaponAttachments[] = {"optic_ACO_grn","R3F_LAMPE_SURB_DES"};
+	};
+	//Heavy Weapons
+	  class B_G_Soldier_AR_F {
+	    weapons[] = {"rhs_weap_akms","rhsusf_weap_m1911a1"};
+	    magazines[] = {"Chemlight_blue","SmokeShell","SmokeShellred","HandGrenade","HandGrenade","rhs_30Rnd_762x39mm","rhs_30Rnd_762x39mm","rhs_30Rnd_762x39mm","rhs_30Rnd_762x39mm","rhs_30Rnd_762x39mm_tracer","rhs_30Rnd_762x39mm_tracer","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP"};
+	    items[] = {"ACE_EarPlugs","ACE_fieldDressing","ACE_fieldDressing","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_morphine""ACE_Flashlight_MX991"};
+	  };
+		//Granadier
+		  class B_G_Soldier_GL_F {
+		    weapons[] = {"R3F_Famas_G2_M203_DES","rhsusf_weap_m1911a1"};
+		    magazines[] = {"Chemlight_blue","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell","1Rnd_Smoke_Grenade_shell","1Rnd_Smoke_Grenade_shell","1Rnd_Smoke_Grenade_shell","1Rnd_SmokeRed_Grenade_shell","HandGrenade","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","rhsusf_mag_7x45acp_MHP"};
+		    items[] = {"ACE_EarPlugs","ACE_fieldDressing","ACE_fieldDressing","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_morphine""ACE_Flashlight_MX991"};
+				primaryWeaponAttachments[] = {"optic_ACO_grn","R3F_LAMPE_SURB_DES"};
+		  };
+	//Demolition Expert
+	class B_G_Soldier_exp_F {
+	  weapons[] = {"R3F_Famas_G2_HG_DES","rhsusf_weap_m1911a1","rhs_weap_M136"};
+	  backpack = "B_TacticalPack_oli";
+	  magazines[] = {"Chemlight_blue","SmokeShell","SmokeShellred","HandGrenade","HandGrenade","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag","SLAMDirectionalMine_Wire_Mag","SLAMDirectionalMine_Wire_Mag","SLAMDirectionalMine_Wire_Mag","SatchelCharge_Remote_Mag","ATMine_Range_Mag","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP"};
+	  items[] = {"ACE_EarPlugs","ACE_fieldDressing","ACE_fieldDressing","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_morphine","MineDetector","ACE_DefusalKit","ACE_Clacker","ACE_DeadManSwitch","ACE_Flashlight_MX991"};
+	  primaryWeaponAttachments[] = {"optic_ACO_grn","R3F_LAMPE_SURB_DES"};
+	};
+	//Marksman
+	  class B_G_Soldier_M_F {
+	    weapons[] = {"R3F_Famas_G2_HG_DES","rhsusf_weap_m1911a1"};
+	    magazines[] = {"Chemlight_blue","SmokeShell","SmokeShellred","HandGrenade","HandGrenade","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP"};
+	    items[] = {"ACE_EarPlugs","ACE_fieldDressing","ACE_fieldDressing","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_morphine","ACE_Flashlight_MX991"};
+	    primaryWeaponAttachments[] = {"optic_MRCO","R3F_LAMPE_SURB_DES"};
+	  };
+	//Medic
+	  class B_G_medic_F {
+	    weapons[] = {"R3F_Famas_G2_HG_DES","rhsusf_weap_m1911a1"};
+	    backpack = "B_TacticalPack_oli";
+	    magazines[] = {"Chemlight_blue","SmokeShell","SmokeShellred","HandGrenade","HandGrenade","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","R3F_30Rnd_556x45_FAMAS","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP","rhsusf_mag_7x45acp_MHP"};
+	    items[] = {"ACE_fieldDressing","ACE_Flashlight_MX991","ACE_packingBandage","ACE_morphine","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_fieldDressing","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_packingBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_elasticBandage","ACE_tourniquet","ACE_tourniquet","ACE_tourniquet","ACE_tourniquet","ACE_morphine","ACE_morphine","ACE_morphine","ACE_morphine","ACE_morphine","ACE_morphine","ACE_morphine","ACE_morphine","ACE_morphine","ACE_morphine","ACE_morphine","ACE_morphine","ACE_epinephrine","ACE_epinephrine","ACE_epinephrine","ACE_epinephrine","ACE_epinephrine","ACE_epinephrine","ACE_plasmaIV_500","ACE_plasmaIV_500","ACE_bloodIV_500","ACE_bloodIV_500","ACE_salineIV_500","ACE_salineIV_500","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_quikclot","ACE_personalAidKit","ACE_surgicalKit"};
+	    primaryWeaponAttachments[] = {"optic_ACO_grn","R3F_LAMPE_SURB_DES"};
+	  };
+	};
+
 class CfgWorlds
 {
 		// Loading texts displayed on the bottom of the loading screen (picked randomly)
 		loadingTexts[]=
 		{
-			"PMC Versus was founded in 1997.",
-			"Stratis is of volcanic origin, with many rocks and crevices and Versus."
+			"Aegis Versus was founded in 1997.",
+			"Stratis is of volcanic origin, with many rocks and crevices and Aegis."
 		};
 };
 
@@ -38,6 +89,6 @@ class CfgDebriefing
 	{
 		title = "Mission Completed";
 		subtitle = "";
-		description = "PMC Versus has ruined the last tourist attraction on Altis and notified the world wide media on the situation the island is in. The already scarce civilian population is either leaving the island or moving in the vicinity of the AAF controlled Gulf. The high concentration of population has lead to increased crime.";
+		description = "PMC Aegis has ruined the last tourist attraction on Altis and notified the world wide media on the situation the island is in. The already scarce civilian population is either leaving the island or moving in the vicinity of the AAF controlled Gulf. The high concentration of population has lead to increased crime.";
 	};
 };
