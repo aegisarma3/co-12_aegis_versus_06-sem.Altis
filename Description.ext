@@ -11,6 +11,8 @@ loadScreen = "images\aegislogo.paa"; // Loading screen pip
 enableDebugConsole = 1;
 respawn            = 4;
 
+respawnTemplates[] = {"ace_spectator"};
+
 doneKeys[] = {"co10_pmcvcro06"};
 
 minScore=0;
